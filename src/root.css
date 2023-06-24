@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Inter;
+    src: url('/public/Inter-VariableFont_slnt,wght.ttf');
+}
+
+@font-face {
+    font-family: Ysabeau Infant;
+    src: url('/public/Ysabeau_Infant/static/YsabeauInfant-ExtraBold.ttf');
+}
+
+:root {
+    --matisse: #16558f;
+    --lochmara: #0583d2;
+    --tradewind: #61b0b7;
+    --french-pass: #b8e3ff;
+    --red-flag: #e36a5b;
+    --green-flag: #61e32d;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
