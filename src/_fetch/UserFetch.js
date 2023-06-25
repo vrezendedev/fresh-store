@@ -1,8 +1,8 @@
-export async function FetchUser(username, password) {
+export async function FetchUser(email, password) {
     return {
         userID: 1,
         name: 'Rezende',
-        username: username,
+        email: email,
         password: password,
     };
 }

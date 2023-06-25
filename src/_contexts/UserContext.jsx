@@ -1,4 +1,9 @@
-import { createSignal, createContext, useContext } from 'solid-js';
+import {
+    createSignal,
+    createContext,
+    useContext,
+    createEffect,
+} from 'solid-js';
 
 import { FetchUser } from '../_fetch/UserFetch';
 
@@ -17,11 +22,11 @@ export function UserContextProvider(props) {
         logger = [
             user,
             {
-                async login(username, password) {
-                    if (username.length == 0 || password.length == 0)
+                async login(email, password) {
+                    if (email.length == 0 || password.length == 0)
                         return 'Necessário inserir o nome de usuário e senha.';
 
-                    await FetchUser(username, password)
+                    await FetchUser(email, password)
                         .then((res) => {
                             setUser(res);
                             SetUserOnSessionStorage(res);
@@ -36,6 +41,10 @@ export function UserContextProvider(props) {
                 },
             },
         ];
+
+    createEffect(() => {
+        setUser(GetUserOnSessionStorage());
+    }, []);
 
     return (
         <UserContext.Provider value={logger}>
