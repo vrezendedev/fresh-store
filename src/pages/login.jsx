@@ -2,7 +2,7 @@ import { useLogger } from '../_contexts/UserContext';
 
 import './../styles/login.css';
 
-import LoginImg from './../../public/imgs/login.png';
+import LoginImg from '../imgs/login.png';
 
 export default function Login() {
     const [user, { login, logout }] = useLogger();

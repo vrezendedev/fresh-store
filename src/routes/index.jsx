@@ -1,7 +1,9 @@
+import './../styles/home.css';
+
 export default function Home() {
     return (
-        <main>
+        <div id="home-main-div">
             <h1>Hello world!</h1>
-        </main>
+        </div>
     );
 }

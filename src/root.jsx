@@ -1,6 +1,4 @@
 // @refresh reload
-//<A href="/">Index</A>;
-import { Suspense } from 'solid-js';
 import {
     A,
     Body,
@@ -14,11 +12,16 @@ import {
     Title,
 } from 'solid-start';
 
-import './root.css';
+import { Suspense } from 'solid-js';
 
 import { useLogger } from './_contexts/UserContext';
 
 import Login from './pages/login';
+import NavBar from './components/NavBar';
+
+import LogoExample from './imgs/logo_example.png';
+
+import './root.css';
 
 export default function Root() {
     const [user] = useLogger();
@@ -40,9 +43,15 @@ export default function Root() {
                             <Login />
                         </Show>
                         <Show when={user() != null}>
-                            <Routes>
-                                <FileRoutes />
-                            </Routes>
+                            <div id="logo-div">
+                                <img src={LogoExample} width={200} />
+                            </div>
+                            <div id="root-main-div">
+                                <NavBar />
+                                <Routes>
+                                    <FileRoutes />
+                                </Routes>
+                            </div>
                         </Show>
                     </ErrorBoundary>
                 </Suspense>
