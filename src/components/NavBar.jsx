@@ -1,8 +1,8 @@
-import ProductsIcon from '../imgs/products.svg';
-import SaleIcon from '../imgs/sale.svg';
-import ExchangeIcon from '../imgs/exchange.svg';
-import SalesDetailIcon from '../imgs/sale_detail.svg';
-import Menu from '../imgs/menu.svg';
+import ProductsIcon from '../_imgs/products.svg';
+import SaleIcon from '../_imgs/sale.svg';
+import ExchangeIcon from '../_imgs/exchange.svg';
+import SalesDetailIcon from '../_imgs/sale_detail.svg';
+import Menu from '../_imgs/menu.svg';
 
 import { A } from 'solid-start';
 
@@ -61,7 +61,7 @@ export default function NavBar() {
                         />
                     </A>
                     <A
-                        href="/sales-details"
+                        href="/saleshistory"
                         onClick={() => HandleMenuOnMobile()}
                     >
                         <img

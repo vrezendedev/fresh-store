@@ -1,0 +1,59 @@
+.register-product-main-div {
+    overflow-x: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-name-price-div {
+    width: 62%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.product-description-div {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-left: 0.4rem;
+}
+
+.input-flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    width: 100%;
+}
+
+.input-flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.product-confirm-button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin-left: 0.4rem;
+    width: 7%;
+    margin-top: 20px;
+}
+
+.add-product-button {
+    width: 50px;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 3px;
+}
+
+.product-confirm-button-div button:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}

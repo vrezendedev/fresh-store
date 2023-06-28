@@ -19,7 +19,7 @@ import { useLogger } from './_contexts/UserContext';
 import Login from './pages/login';
 import NavBar from './components/NavBar';
 
-import LogoExample from './imgs/logo_example.png';
+import LogoExample from './_imgs/logo_example.png';
 
 import './root.css';
 
