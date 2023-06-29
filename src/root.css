@@ -30,10 +30,15 @@
   background: var(--matisse);
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  height: 100%;
   font-size: 1rem;
   font-family: "Inter", sans-serif;
 }
@@ -47,6 +52,13 @@ textarea {
   border-radius: 5px;
   padding-left: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none !important;
+  border: var(--tradewind) 1px solid;
+  box-shadow: 0 0 10px var(--tradewind);
 }
 
 label {
@@ -66,11 +78,38 @@ button {
   background-color: var(--lochmara);
 }
 
-button:hover {
-  background-color: var(--matisse);
+button:not(disabled):hover {
+  cursor: pointer;
+}
+
+button:disabled:hover {
+  cursor: not-allowed;
+}
+
+button:disabled {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 img {
   width: 100%;
   height: 100%;
+}
+
+h1 {
+  font-family: inherit;
+  margin-bottom: 0.4rem;
+}
+
+p {
+  font-family: inherit;
+  margin: 0;
+}
+
+.initial-letter {
+  font-size: 2.25rem;
+}
+
+.container-flex-center {
+  display: flex;
+  align-items: center;
 }

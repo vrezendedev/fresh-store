@@ -1,0 +1,4 @@
+.access-div {
+  background: linear-gradient(180deg, white 30%, var(--french-pass) 100%);
+  height: 100%;
+}

@@ -1,0 +1,28 @@
+.login-card {
+  margin: 2rem;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.45);
+  background-color: white;
+}
+
+@media screen and (min-width: 1024px) {
+  .login-card {
+    width: 650px;
+  }
+  #login-img {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .login-card {
+    width: 250px;
+  }
+  #login-img {
+    width: 250px;
+  }
+}

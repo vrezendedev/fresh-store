@@ -7,7 +7,6 @@ import {
   Head,
   Html,
   Meta,
-  Routes,
   Scripts,
   Title,
 } from "solid-start";
@@ -16,9 +15,7 @@ import { Suspense } from "solid-js";
 
 import { useLogger } from "./_contexts/UserContext";
 
-import Login from "./pages/Login";
-
-import LogoExample from "./_imgs/logo_example.png";
+import Access from "./pages/Access/Access";
 
 import "./root.css";
 
@@ -36,9 +33,13 @@ export default function Root() {
         <Suspense>
           <ErrorBoundary>
             <Show when={user() == null}>
-              <Login />
+              <Access />
             </Show>
-            <Show when={user() != null}></Show>
+            <Show when={user() != null}>
+              <Routes>
+                <FileRoutes />
+              </Routes>
+            </Show>
           </ErrorBoundary>
         </Suspense>
         <Scripts />
