@@ -44,7 +44,8 @@ body {
 #root-main-div {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 #logo-div {
@@ -53,6 +54,9 @@ body {
     justify-content: center;
     padding: 1rem;
     background-color: var(--matisse);
+    position: inline;
+    overflow-x: hidden;
+    height: 4.5vh;
 }
 
 @media only screen and (max-width: 600px) {

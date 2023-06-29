@@ -14,31 +14,35 @@ export default function RegisterProduct() {
                         placeholder="Digite o nome."
                     />
                 </div>
-                <div>
+                <div class="product-price-div">
                     <div class="input-flex-column">
                         <div class="input-flex-column">
                             <div>
                                 <label for="productPrice">Preço</label>
                             </div>
-                            <div class="input-flex-row">
-                                <input
-                                    id="productPrice"
-                                    type="number"
-                                    step={0.1}
-                                    placeholder="Digite o preço."
-                                    style={{ width: '70%' }}
-                                />
-                                <label>%</label>
-                                <input
-                                    id="discountCalc"
-                                    type="number"
-                                    step="1"
-                                    min={-100}
-                                    max={100}
-                                    placeholder="+/-"
-                                />
-                                <label>{'=>'}</label>
-                                <label>$...</label>
+                            <div class="price-value-div">
+                                <div class="price-raw-value-div">
+                                    <input
+                                        id="productPrice"
+                                        type="number"
+                                        step={0.1}
+                                        placeholder="Digite o preço."
+                                    />
+                                </div>
+                                <div class="price-value-modifier-div">
+                                    <input
+                                        id="discountCalc"
+                                        type="number"
+                                        step="1"
+                                        min={-100}
+                                        max={100}
+                                        placeholder="+/- 0%"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label>{'Valor com mod. % aplicado: '}</label>
+                                <label>R$...</label>
                             </div>
                         </div>
                     </div>
@@ -47,7 +51,7 @@ export default function RegisterProduct() {
             <div class="product-description-div">
                 <label for="productName">Descrição</label>
                 <textarea
-                    style={{ height: '100%' }}
+                    style={{ height: '100%', resize: 'none' }}
                     id="productName"
                     placeholder="Digite a descrição."
                 />

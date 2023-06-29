@@ -30,7 +30,7 @@
     flex-direction: column;
     font-size: 1rem;
     font-weight: bold;
-    -webkit-box-shadow: 0 0 30px rgba(22, 85, 143, 0.3);
+    -webkit-box-shadow: 0 0 30px rgba(22, 85, 143, 0.45);
     box-shadow: 0 0 30px rgba(22, 85, 143, 0.45);
 }
 
@@ -351,24 +351,5 @@
     }
     #login-img {
         width: 100px;
-    }
-}
-
-@media screen and (max-height: 600px) {
-    .login-main {
-        overflow-y: hidden;
-    }
-    #login-div-img-card {
-        height: auto;
-    }
-    .login-div {
-        margin-top: 10px;
-    }
-    .login-card,
-    .signup-card {
-        width: 250px;
-    }
-    #login-img {
-        height: 100px;
     }
 }

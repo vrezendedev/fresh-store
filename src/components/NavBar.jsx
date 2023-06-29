@@ -21,6 +21,14 @@ export default function NavBar() {
         }
     }, []);
 
+    createEffect(() => {
+        let nav = document.getElementById('nav-bar-icons');
+        nav.classList = [];
+
+        if (isShowingMenu()) nav.classList.add('nav-bar-main-icons');
+        else nav.classList.add('nav-bar-clean-bg');
+    }, [isShowingMenu]);
+
     function HandleMenuOnMobile() {
         if (!isMobileNavBar()) return;
         setIsShowingMenu(false);
@@ -28,7 +36,7 @@ export default function NavBar() {
 
     return (
         <div class="nav-bar-main-div">
-            <div class="nav-bar-main-icons">
+            <div class="nav-bar-main-icons" id="nav-bar-icons">
                 <Show
                     when={isMobileNavBar() == true && isShowingMenu() == false}
                 >

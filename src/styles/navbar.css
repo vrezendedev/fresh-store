@@ -26,12 +26,12 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .nav-bar-main-icons {
+    .nav-bar-main-icons,
+    .nav-bar-clean-bg {
         position: absolute;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        background-color: rgba(0, 0, 0, 0.3);
         z-index: 1;
         transform: translateX(calc(100vw - 74px));
         overflow-y: scroll;
@@ -42,6 +42,15 @@
         max-height: 30vh;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
+    }
+
+    .nav-bar-main-icons {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-bar-clean-bg {
+        background-color: transparent;
+        padding-top: 0.2rem;
     }
 
     .nav-bar-main-div img {
