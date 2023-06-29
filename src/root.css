@@ -1,66 +1,76 @@
 @font-face {
-    font-family: Inter;
-    src: url('/public/Inter-VariableFont_slnt,wght.ttf');
-}
-
-@font-face {
-    font-family: Ysabeau Infant;
-    src: url('/public/Ysabeau_Infant/static/YsabeauInfant-ExtraBold.ttf');
+  font-family: Inter;
+  src: url("./_resources/fonts/Inter.ttf");
 }
 
 :root {
-    --matisse: #16558f;
-    --lochmara: #0583d2;
-    --tradewind: #61b0b7;
-    --french-pass: #b8e3ff;
-    --red-flag: #e36a5b;
-    --green-flag: #61e32d;
-    font-family: 'Inter', sans-serif;
+  --matisse: #16558f;
+  --lochmara: #0583d2;
+  --tradewind: #61b0b7;
+  --french-pass: #b8e3ff;
+  --red-flag: #e36a5b;
+  --green-flag: #61e32d;
+  font-family: "Inter", sans-serif;
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--matisse);
-    border-radius: 10px;
+  background: var(--matisse);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--matisse);
+  background: var(--matisse);
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
 }
 
-#root-main-div {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    overflow-x: hidden;
+input,
+textarea {
+  font-family: inherit;
+  height: 2rem;
+  margin: 0.4rem 0rem 0.5rem 0;
+  border: none;
+  border-radius: 5px;
+  padding-left: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#logo-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    background-color: var(--matisse);
-    position: inline;
-    overflow-x: hidden;
-    height: 4.5vh;
+label {
+  font-family: inherit;
+  font-weight: bold;
 }
 
-@media only screen and (max-width: 600px) {
-    #root-main-div {
-        gap: 0;
-    }
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 40px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--lochmara);
+}
+
+button:hover {
+  background-color: var(--matisse);
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }

@@ -1,98 +1,66 @@
-import { useLogger } from '../_contexts/UserContext';
+import { createSignal, onMount } from "solid-js";
 
-import './../styles/login.css';
+import { useLogger } from "../_contexts/UserContext";
 
-import LoginImg from '../_imgs/login.png';
+import TextInput from "../components/TextInput/TextInput";
+
+import "./../styles/login.css";
+
+import LoginImg from "../_resources/imgs/login.png";
 
 export default function Login() {
-    const [user, { login, logout }] = useLogger();
+  const [user, { login, logout }] = useLogger();
+  const [email, setEmail] = createSignal("");
+  const [password, setPassword] = createSignal("");
 
-    async function handleClickOnAccessButton() {
-        let userEmail = document.getElementById('userEmail');
-        let userPassword = document.getElementById('userPassword');
+  function onValidate(e) {
+    if (e == undefined || e?.trim().length == 0) return true;
+    else return false;
+  }
 
-        let err = false;
-
-        if (userEmail.value.length == 0) {
-            userEmail.style.border = 'red solid thin';
-            userEmail.placeholder = 'Obrigatório preencher esse campo.';
-            err = true;
-        }
-
-        if (userPassword.value.length == 0) {
-            userPassword.style.border = 'red solid thin';
-            userPassword.placeholder = 'Obrigatório preencher esse campo.';
-            err = true;
-        }
-
-        if (err == true) return;
-
-        let res = await login(userEmail.value, userPassword.value);
-
-        if (res != null) {
-            //show error modal
-        }
+  async function handleClickOnAccessButton() {
+    if (email().length == 0 || password().length == 0) return;
+    let res = await login(email(), password());
+    if (res != null) {
+      //show error modal
     }
+  }
 
-    return (
-        <main>
-            <div class="login-main">
-                <div id="login-div-img-card">
-                    <img
-                        id="login-img"
-                        draggable={false}
-                        alt="Colaboradora confirmando entrega."
-                        src={LoginImg}
-                    />
-                    <div class="login-div">
-                        <div id="title-div">
-                            <h1 id="login-title">Fresh Store</h1>
-                            <p id="login-subtitle">
-                                O controle sem limites de sua loja.
-                            </p>
-                        </div>
-                        <div class="login-card">
-                            <h3>Já está cadastrado?</h3>
-                            <label for="userEmail">E-mail</label>
-                            <input
-                                id="userEmail"
-                                type="text"
-                                class="input"
-                                placeholder="Digite seu e-mail."
-                                onChange={(e) => {
-                                    if (e.target.value.length == 0) return;
-                                    e.target.style.border = 'none';
-                                    e.target.placeholder = 'Digite seu e-mail.';
-                                }}
-                            />
-                            <label for="userPassword">Senha</label>
-                            <input
-                                id="userPassword"
-                                type="password"
-                                class="input"
-                                placeholder="Digite sua senha."
-                                onChange={(e) => {
-                                    if (e.target.value.length == 0) return;
-                                    e.target.style.border = 'none';
-                                    e.target.placeholder = 'Digite sua senha.';
-                                }}
-                            />
-                            <button
-                                onClick={() => handleClickOnAccessButton()}
-                                id="access-btn"
-                            >
-                                Acessar
-                            </button>
-                        </div>
-                        <div class="signup-card">
-                            <p>Ainda não possui uma conta ?</p>
-                            <p id="createAccount">
-                                Entre em contato com seu Gestor
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    );
+  onMount(() => {
+    onValidate(" ");
+  });
+
+  return (
+    <main>
+      <div class="login-card">
+        <div style={{ display: "flex", "justify-content": "center" }}>
+          <img src={LoginImg} style={{ width: "250px" }} />
+        </div>
+        <TextInput
+          title="E-mail"
+          required={true}
+          placeholder="Digite seu e-mail."
+          placeholderOnError="Insira esse campo para realizar o Login."
+          onChange={(e) => setEmail(e)}
+          onValidate={(e) => onValidate(e)}
+          inputProps={{ type: "text" }}
+        />
+        <TextInput
+          title="Senha"
+          required={true}
+          placeholder="Digite sua senha."
+          placeholderOnError="Insira esse campo para realizar o Login."
+          onChange={(e) => setPassword(e)}
+          onValidate={(e) => onValidate(e)}
+          inputProps={{ type: "password" }}
+          containerProps={{ style: "margin-top: 0; margin-bottom: 0.2rem" }}
+        />
+        <div style={{ margin: "0.5rem" }}>
+          <button style={{}} onClick={() => handleClickOnAccessButton()}>
+            Acessar
+          </button>
+        </div>
+      </div>
+    </main>
+  );
 }
