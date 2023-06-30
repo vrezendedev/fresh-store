@@ -9,6 +9,15 @@
   background-color: white;
 }
 
+.btn-password-visibility {
+  margin: 0.4rem, 0, 0, 0;
+  padding: 0;
+  height: calc(2rem + 2px);
+  background-color: transparent;
+  border-radius: 5px;
+  flex: 0.1;
+}
+
 @media screen and (min-width: 1024px) {
   .login-card {
     width: 650px;

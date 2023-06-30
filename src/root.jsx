@@ -3,6 +3,7 @@ import {
   A,
   Body,
   ErrorBoundary,
+  Routes,
   FileRoutes,
   Head,
   Html,

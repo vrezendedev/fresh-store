@@ -9,12 +9,11 @@ export default function Access() {
       style={{ "flex-direction": "column" }}
     >
       <div>
-        <h1>
+        <h1 style={{ margin: "0.2rem, 0, 0, 0" }}>
           <span class="initial-letter">F</span>resh Store
         </h1>
         <p> O controle sem limites de sua loja.</p>
       </div>
-
       <Login />
     </div>
   );
