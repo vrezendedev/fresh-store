@@ -18,6 +18,7 @@ import { useLogger } from './_contexts/UserContext';
 
 import Access from './pages/Access/Access';
 import NavBar from './layouts/Navbar/NavBar';
+import Header from './layouts/Header/Header';
 
 import './root.css';
 
@@ -43,9 +44,12 @@ export default function Root() {
                         <Show when={user() != null}>
                             <div class="main-app-div">
                                 <NavBar />
-                                <Routes>
-                                    <FileRoutes />
-                                </Routes>
+                                <div style={{ width: '100%' }}>
+                                    <Header />
+                                    <Routes>
+                                        <FileRoutes />
+                                    </Routes>
+                                </div>
                             </div>
                         </Show>
                     </ErrorBoundary>

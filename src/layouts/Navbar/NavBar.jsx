@@ -42,7 +42,7 @@ const navItems = [
 import './navbar.css';
 
 export default function NavBar() {
-    const [showNavBar, setShowNavBar] = createSignal(true);
+    const [showNavBar, setShowNavBar] = createSignal(false);
 
     return (
         <div class="navbar-div">
@@ -67,13 +67,12 @@ export default function NavBar() {
                         ? `navbar-hide-button`
                         : `navbar-hide-button navbar-hide-onMobile`
                 }
-                style={{ left: showNavBar() ? '64px' : '-18px' }}
+                onClick={() => setShowNavBar((prev) => !prev)}
+                style={{ left: showNavBar() ? '60px' : '-18px' }}
             >
                 <img
                     src={showNavBar() ? HideNavBar : ShowNavBar}
-                    onClick={() => setShowNavBar((prev) => !prev)}
                     draggable={false}
-                    role="button"
                     alt="Esconder ou Mostrar barra de navegação"
                 />
             </button>

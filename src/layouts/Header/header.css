@@ -1,0 +1,32 @@
+.header-div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0 16px 0;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.color-picker {
+    position: absolute;
+    right: 16px;
+    padding: 0;
+    width: 32px;
+    border: none;
+    background-color: transparent;
+    appearance: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.color-picker::-webkit-color-swatch {
+    border-radius: 100%;
+    border: 1px solid black;
+}
+.color-picker::-moz-color-swatch {
+    border-radius: 100%;
+    border: 1px solid black;
+}

@@ -39,6 +39,11 @@ export function UserContextProvider(props) {
                 async logout() {
                     setUser(null);
                 },
+                setUserColor(color) {
+                    let u = GetUserOnSessionStorage();
+                    u.color = color;
+                    SetUserOnSessionStorage(u);
+                },
             },
         ];
 
