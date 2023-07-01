@@ -1,0 +1,133 @@
+.product-card-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 825px;
+    box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.product-card-div input:focus-visible,
+textarea:focus-visible {
+    outline: none !important;
+    border: black 1px solid;
+    box-shadow: 0 0 10px black;
+}
+
+.product-info-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.product-name-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-mode-div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    justify-content: space-evenly;
+}
+
+.product-mode-div img {
+    width: 32px;
+}
+
+.product-mode-div button {
+    background-color: transparent;
+}
+
+.product-mode-div button:disabled {
+    cursor: default;
+}
+
+.product-left-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.product-img-div {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    padding-top: 0;
+    align-items: center;
+}
+
+.product-img {
+    width: 124px;
+    height: 124px;
+    object-fit: fill;
+    border: 2px solid black;
+    border-bottom: none;
+    border-right: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.product-change-img {
+    width: 24px;
+    height: auto;
+    padding-left: 0.6rem;
+}
+
+.product-change-img:hover {
+    cursor: pointer;
+}
+
+.product-name-description-div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.product-description {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    margin: 0;
+    padding-left: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .product-img-div {
+        padding-top: 1rem;
+        flex-direction: column;
+    }
+    .product-left-div {
+        flex-direction: column;
+    }
+    .product-change-img {
+        padding-top: 0.6rem;
+        padding-left: 0;
+    }
+    .product-card-div {
+        flex-direction: column;
+        width: auto;
+    }
+    .product-mode-div {
+        flex-direction: row;
+        padding-left: 0;
+        padding-top: 1rem;
+    }
+    .product-img {
+        width: 96px;
+        height: 96px;
+    }
+    .product-info-div {
+        flex-direction: column;
+    }
+    .product-name-description-div {
+        flex-direction: column;
+        width: 100%;
+    }
+    .product-description {
+        padding-left: 0;
+    }
+}

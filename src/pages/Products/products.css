@@ -1,0 +1,33 @@
+.create-product-div {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.create-product-show-btn-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-product-show-btn-div button {
+    background-color: transparent;
+    width: auto;
+}
+
+.create-product-show-btn-div img {
+    width: 32px;
+}
+
+@media screen and (max-width: 768px) {
+    .create-product-div {
+        align-items: normal;
+    }
+    .create-product-show-btn-div img {
+        width: 24px;
+    }
+}

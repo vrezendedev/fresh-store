@@ -1,12 +1,9 @@
-import { createEffect, createSignal } from "solid-js";
+import { createSignal } from "solid-js";
 
-import EyeOpened from "@phosphor-icons/core/assets/regular/eye.svg";
-import EyeClosed from "@phosphor-icons/core/assets/regular/eye-slash.svg";
+import "./textarea.css";
 
-import "./text-input.css";
-
-export default function TextInput({
-    title = "",
+export default function TextArea({
+    title,
     required = false,
     placeholder,
     placeholderOnError = "Obrigatório preencher esse campo.",
@@ -18,10 +15,9 @@ export default function TextInput({
     inputProps,
 }) {
     const [hasError, setHasError] = createSignal(false);
-    const [showPassword, setShowPassword] = createSignal(false);
 
     return (
-        <div class="text-input-div" {...containerProps}>
+        <div class="text-area-div" {...containerProps}>
             <label>
                 {title}
                 <span
@@ -36,12 +32,11 @@ export default function TextInput({
             <div
                 style={{
                     display: "flex",
-                    "flex-direction": "row",
+                    "flex-direction": "column",
                     "align-items": "center",
-                    gap: "0.3rem",
                 }}
             >
-                <input
+                <textarea
                     placeholder={!hasError() ? placeholder : placeholderOnError}
                     onChange={(e) => {
                         e.target.value = e.target.value.trim();
@@ -50,26 +45,10 @@ export default function TextInput({
                     }}
                     style={{
                         border: !hasError() ? "none" : "red solid 1px",
-                        flex: "10",
                     }}
                     {...inputProps}
-                    type={
-                        inputProps.type == "password" && showPassword()
-                            ? "text"
-                            : inputProps.type
-                    }
-                    class={inputProps.type == "password" ? "has-password" : ""}
+                    class="text-area-input"
                 />
-                <Show when={inputProps.type == "password"}>
-                    <button class="btn-password-visibility">
-                        <img
-                            draggable={false}
-                            alt="Mostrar ou Esconder Senha"
-                            onClick={() => setShowPassword((prev) => !prev)}
-                            src={showPassword() ? EyeOpened : EyeClosed}
-                        />
-                    </button>
-                </Show>
             </div>
         </div>
     );

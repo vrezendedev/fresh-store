@@ -32,7 +32,7 @@
     top: 64px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .navbar-icon {
         width: 38px;
     }

@@ -18,11 +18,11 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .login-card {
         width: 250px;
     }
     #login-img {
-        width: 225px;
+        width: 215px;
     }
 }

@@ -1,20 +1,15 @@
-import {
-    createSignal,
-    createContext,
-    useContext,
-    createEffect,
-} from 'solid-js';
+import { createSignal, createContext, useContext, createEffect } from "solid-js";
 
-import { FetchUser } from '../_fetch/UserFetch';
+import { FetchUser } from "../_fetch/UserFetch";
 
 const UserContext = createContext();
 
 export function GetUserOnSessionStorage() {
-    return JSON.parse(sessionStorage.getItem('user'));
+    return JSON.parse(sessionStorage.getItem("user"));
 }
 
 function SetUserOnSessionStorage(user) {
-    sessionStorage.setItem('user', JSON.stringify(user));
+    sessionStorage.setItem("user", JSON.stringify(user));
 }
 
 export function UserContextProvider(props) {
@@ -24,7 +19,7 @@ export function UserContextProvider(props) {
             {
                 async login(email, password) {
                     if (email.length == 0 || password.length == 0)
-                        return 'Necessário inserir o nome de usuário e senha.';
+                        return "Necessário inserir o nome de usuário e senha.";
 
                     await FetchUser(email, password)
                         .then((res) => {
@@ -52,9 +47,7 @@ export function UserContextProvider(props) {
     }, []);
 
     return (
-        <UserContext.Provider value={logger}>
-            {props.children}
-        </UserContext.Provider>
+        <UserContext.Provider value={logger}>{props.children}</UserContext.Provider>
     );
 }
 

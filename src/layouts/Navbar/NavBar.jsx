@@ -1,47 +1,47 @@
-import { createSignal } from 'solid-js';
+import { createSignal } from "solid-js";
 
-import { A } from 'solid-start';
+import { A } from "solid-start";
 
-import Home from '@phosphor-icons/core/assets/regular/house.svg';
-import Products from '@phosphor-icons/core/assets/regular/package.svg';
-import Sales from '@phosphor-icons/core/assets/regular/money.svg';
-import Exchanges from '@phosphor-icons/core/assets/regular/swap.svg';
-import SalesDetails from '@phosphor-icons/core/assets/regular/chart-line-up.svg';
+import Home from "@phosphor-icons/core/assets/regular/house.svg";
+import Products from "@phosphor-icons/core/assets/regular/package.svg";
+import Sales from "@phosphor-icons/core/assets/regular/money.svg";
+import Exchanges from "@phosphor-icons/core/assets/regular/swap.svg";
+import SalesDetails from "@phosphor-icons/core/assets/regular/chart-line-up.svg";
 
-import ShowNavBar from '@phosphor-icons/core/assets/regular/caret-circle-right.svg';
-import HideNavBar from '@phosphor-icons/core/assets/regular/caret-circle-left.svg';
+import ShowNavBar from "@phosphor-icons/core/assets/regular/caret-circle-right.svg";
+import HideNavBar from "@phosphor-icons/core/assets/regular/caret-circle-left.svg";
 
 const navItems = [
     {
         icon: Home,
-        href: '/',
-        alt: 'Acessar aba principal',
+        href: "/",
+        alt: "Acessar aba principal",
     },
     {
         icon: Products,
-        href: '/products',
-        alt: 'Acessar aba de Produtos',
+        href: "/products",
+        alt: "Acessar aba de Produtos",
     },
     {
         icon: Sales,
-        href: '/sales',
-        alt: 'Acessar aba de Vendas',
+        href: "/sales",
+        alt: "Acessar aba de Vendas",
     },
     {
         icon: Exchanges,
-        href: '/exchanges',
-        alt: 'Acessar aba de Trocas',
+        href: "/exchanges",
+        alt: "Acessar aba de Trocas",
     },
     {
         icon: SalesDetails,
-        href: '/sales-history',
-        alt: 'Acessar aba de Histórico de Vendas',
+        href: "/sales-history",
+        alt: "Acessar aba de Histórico de Vendas",
     },
 ];
 
-import './navbar.css';
+import "./navbar.css";
 
-export default function NavBar() {
+export default function NavBar({ setNavbarOpened }) {
     const [showNavBar, setShowNavBar] = createSignal(false);
 
     return (
@@ -49,7 +49,13 @@ export default function NavBar() {
             <Show when={showNavBar()}>
                 <div class="navbar-icon-div">
                     {navItems.map((obj) => (
-                        <A href={obj.href}>
+                        <A
+                            href={obj.href}
+                            onClick={() => {
+                                setShowNavBar((prev) => !prev);
+                                setNavbarOpened(showNavBar());
+                            }}
+                        >
                             <img
                                 class="navbar-icon"
                                 src={obj.icon}
@@ -67,8 +73,11 @@ export default function NavBar() {
                         ? `navbar-hide-button`
                         : `navbar-hide-button navbar-hide-onMobile`
                 }
-                onClick={() => setShowNavBar((prev) => !prev)}
-                style={{ left: showNavBar() ? '60px' : '-18px' }}
+                onClick={() => {
+                    setShowNavBar((prev) => !prev);
+                    setNavbarOpened(showNavBar());
+                }}
+                style={{ left: showNavBar() ? "60px" : "-18px" }}
             >
                 <img
                     src={showNavBar() ? HideNavBar : ShowNavBar}

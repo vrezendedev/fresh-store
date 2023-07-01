@@ -3,12 +3,14 @@
     "scripts": {
         "dev": "solid-start dev",
         "build": "solid-start build",
-        "start": "solid-start start"
+        "start": "solid-start start",
+        "format": "prettier --loglevel warn --write \"./**/*.{jsx,js}\""
     },
     "type": "module",
     "devDependencies": {
         "esbuild": "^0.14.54",
         "postcss": "^8.4.21",
+        "prettier": "2.8.8",
         "solid-start-node": "^0.2.19",
         "vite": "^4.1.4"
     },

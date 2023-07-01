@@ -10,20 +10,23 @@ import {
     Meta,
     Scripts,
     Title,
-} from 'solid-start';
+} from "solid-start";
 
-import { Suspense } from 'solid-js';
+import { Show, Suspense, createSignal } from "solid-js";
 
-import { useLogger } from './_contexts/UserContext';
+import { useLogger } from "./_contexts/UserContext";
 
-import Access from './pages/Access/Access';
-import NavBar from './layouts/Navbar/NavBar';
-import Header from './layouts/Header/Header';
+import Access from "./pages/Access/Access";
+import NavBar from "./layouts/Navbar/NavBar";
+import Header from "./layouts/Header/Header";
 
-import './root.css';
+import Spinner from "@phosphor-icons/core/assets/regular/spinner.svg";
+
+import "./root.css";
 
 export default function Root() {
     const [user] = useLogger();
+    const [navbarOpened, setNavbarOpened] = createSignal(false);
 
     return (
         <Html lang="en">
@@ -43,12 +46,23 @@ export default function Root() {
                         </Show>
                         <Show when={user() != null}>
                             <div class="main-app-div">
-                                <NavBar />
-                                <div style={{ width: '100%' }}>
+                                <NavBar setNavbarOpened={setNavbarOpened} />
+                                <div id="overflow-div" style={{}}>
                                     <Header />
-                                    <Routes>
-                                        <FileRoutes />
-                                    </Routes>
+                                    <Show when={!navbarOpened()}>
+                                        <Routes>
+                                            <FileRoutes />
+                                        </Routes>
+                                    </Show>
+                                    <Show when={navbarOpened()}>
+                                        <div class="on-navbar-div">
+                                            <img
+                                                class="loading"
+                                                draggable={false}
+                                                src={Spinner}
+                                            />
+                                        </div>
+                                    </Show>
                                 </div>
                             </div>
                         </Show>

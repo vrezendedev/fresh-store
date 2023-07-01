@@ -1,6 +1,6 @@
 @font-face {
     font-family: Inter;
-    src: url('./_resources/fonts/Inter.ttf');
+    src: url("./_resources/fonts/Inter.ttf");
 }
 
 :root {
@@ -10,7 +10,7 @@
     --french-pass: #b8e3ff;
     --red-flag: #e36a5b;
     --green-flag: #61e32d;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -40,7 +40,7 @@ body {
     overflow: hidden;
     height: 100%;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 input,
@@ -118,4 +118,35 @@ p {
     flex: row;
     height: 100%;
     width: 100%;
+}
+
+.on-navbar-div {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    width: 50px;
+    animation: rotate 1s forwards infinite;
+}
+
+#overflow-div {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
