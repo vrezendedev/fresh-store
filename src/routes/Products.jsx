@@ -1,5 +1,7 @@
-import "./../styles/products.css";
-
 export default function Products() {
-  return <div></div>;
+    return (
+        <div>
+            <h1 class="title-page">Produtos</h1>
+        </div>
+    );
 }

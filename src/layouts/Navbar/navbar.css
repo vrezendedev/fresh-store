@@ -1,0 +1,48 @@
+.navbar-div {
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.navbar-icon-div {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 2rem;
+    background-color: white;
+}
+
+.navbar-icon {
+    width: 48px;
+    border-radius: 5px;
+}
+
+.navbar-hide-button {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 100px;
+    width: auto;
+    position: absolute;
+    z-index: 2;
+    left: 64px;
+    top: 64px;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-icon {
+        width: 38px;
+    }
+
+    .navbar-hide-button {
+        top: 48px;
+        left: 54px !important;
+    }
+
+    .navbar-hide-onMobile {
+        left: -20px !important;
+    }
+}

@@ -1,7 +1,7 @@
 export default function SalesHistory() {
     return (
         <div>
-            <h1>Sales History</h1>
+            <h1 class="title-page">Histórico de Vendas</h1>
         </div>
     );
 }
