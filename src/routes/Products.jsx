@@ -1,6 +1,6 @@
 import { Title } from "solid-start";
 
-import ProductsPage from "./../pages/Products/Products";
+import ProductsPage from "../pages/ProductsPage/ProductsPage";
 
 export default function Products() {
     return (

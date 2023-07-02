@@ -7,9 +7,10 @@ import Create from "@phosphor-icons/core/assets/regular/plus.svg";
 import SearchImage from "@phosphor-icons/core/assets/regular/image-square.svg";
 import Placeholder from "@phosphor-icons/core/assets/regular/placeholder.svg";
 
-import "./product-card.css";
 import TextInput from "~/components/TextInput/TextInput";
 import TextArea from "~/components/TextArea/TextArea";
+
+import "./product-card.css";
 
 const modesButtons = [
     {
@@ -41,6 +42,7 @@ const modesButtons = [
 export default function ProductCard({
     id = null,
     name = "",
+    code = "",
     description = "",
     price = 0,
     stock = 0,
@@ -48,6 +50,7 @@ export default function ProductCard({
 }) {
     const [productImage, setProductImage] = createSignal(Placeholder);
     const [productName, setProductName] = createSignal(name);
+    const [productCode, setProductCode] = createSignal(code);
     const [productDescription, setProductDescription] = createSignal(description);
     const [productPrice, setProductPrice] = createSignal(price);
     const [productStock, setProductStock] = createSignal(stock);
@@ -146,53 +149,60 @@ export default function ProductCard({
                 </div>
                 <div class="product-name-description-div">
                     <div class="product-name-div">
-                        <TextInput
-                            title="Nome"
-                            required={["create", "update"].includes(mode)}
-                            placeholder="Nome do Produto."
-                            placeholderOnError="Nome é inválido."
-                            onChange={(e) => setProductName(e)}
-                            onValidate={(e) => {}}
-                            inputProps={{
-                                type: "text",
-                                value: productName(),
-                            }}
-                            containerProps={{
-                                style: "margin-top: 0; margin-bottom: 0.2rem",
-                            }}
-                        />
-                        <TextInput
-                            title="Preço"
-                            required={false}
-                            placeholder="0"
-                            placeholderOnError="Preço é inválido."
-                            onChange={(e) => setProductPrice(e)}
-                            onValidate={(e) => {}}
-                            inputProps={{
-                                type: "number",
-                                step: "0.1",
-                                value: productPrice(),
-                            }}
-                            containerProps={{
-                                style: "margin-top: 0; margin-bottom: 0.2rem",
-                            }}
-                        />
-                        <TextInput
-                            title="Qtd."
-                            required={false}
-                            placeholder="0"
-                            placeholderOnError="Qtd. é inválida."
-                            onChange={(e) => setProductStock(e)}
-                            onValidate={(e) => {}}
-                            inputProps={{
-                                type: "number",
-                                step: "1",
-                                value: productStock(),
-                            }}
-                            containerProps={{
-                                style: "margin-top: 0; margin-bottom: 0.2rem",
-                            }}
-                        />
+                        <div class="product-name-div-inputs">
+                            <TextInput
+                                title="Nome"
+                                required={["create", "update"].includes(mode)}
+                                placeholder="Nome do Produto."
+                                placeholderOnError="Nome é inválido."
+                                onChange={(e) => setProductName(e)}
+                                onValidate={(e) => {}}
+                                inputProps={{
+                                    type: "text",
+                                    value: productName(),
+                                }}
+                            />
+                            <TextInput
+                                title="Código"
+                                required={false}
+                                placeholder="Código do Produto."
+                                placeholderOnError="Nome é inválido."
+                                onChange={(e) => setProductCode(e)}
+                                onValidate={(e) => {}}
+                                inputProps={{
+                                    type: "text",
+                                    value: productCode(),
+                                }}
+                            />
+                        </div>
+                        <div class="product-name-div-inputs">
+                            <TextInput
+                                title="Preço"
+                                required={false}
+                                placeholder="0"
+                                placeholderOnError="Preço é inválido."
+                                onChange={(e) => setProductPrice(e)}
+                                onValidate={(e) => {}}
+                                inputProps={{
+                                    type: "number",
+                                    step: "0.1",
+                                    value: productPrice(),
+                                }}
+                            />
+                            <TextInput
+                                title="Qtd."
+                                required={false}
+                                placeholder="0"
+                                placeholderOnError="Qtd. é inválida."
+                                onChange={(e) => setProductStock(e)}
+                                onValidate={(e) => {}}
+                                inputProps={{
+                                    type: "number",
+                                    step: "1",
+                                    value: productStock(),
+                                }}
+                            />
+                        </div>
                     </div>
                     <div class="product-description">
                         <TextArea
@@ -204,7 +214,7 @@ export default function ProductCard({
                             onValidate={(e) => {}}
                             inputProps={{
                                 value: productDescription(),
-                                style: "height: 180px",
+                                style: "height: 194px",
                             }}
                             containerProps={{
                                 style: "padding-left: 0.2rem",

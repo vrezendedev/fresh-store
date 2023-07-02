@@ -1,0 +1,33 @@
+.hider-show-btn-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hider-show-btn-div button {
+    background-color: transparent;
+    width: auto;
+}
+
+.hider-show-btn-div img {
+    width: 32px;
+}
+
+.children-div {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .children-div {
+        align-items: normal;
+    }
+    .hider-show-btn-div img {
+        width: 24px;
+    }
+}

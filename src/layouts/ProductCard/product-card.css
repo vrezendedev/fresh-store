@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: row;
     margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     padding: 1rem;
     border-radius: 10px;
-    width: 825px;
+    width: auto;
     box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -24,13 +24,15 @@ textarea:focus-visible {
 
 .product-name-div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .product-mode-div {
     display: flex;
     flex-direction: column;
-    padding-left: 2rem;
+    padding-left: 1.25rem;
     justify-content: space-evenly;
 }
 
@@ -48,21 +50,25 @@ textarea:focus-visible {
 
 .product-left-div {
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: center;
+    padding-right: 1rem;
 }
 
 .product-img-div {
     display: flex;
-    flex-direction: row;
-    padding: 1rem;
+    flex-direction: column;
+    width: 100%;
     padding-top: 0;
     align-items: center;
+    justify-content: space-around;
 }
 
 .product-img {
     width: 124px;
     height: 124px;
+    margin-bottom: 0.4rem;
     object-fit: fill;
     border: 2px solid black;
     border-bottom: none;
@@ -74,7 +80,6 @@ textarea:focus-visible {
 .product-change-img {
     width: 24px;
     height: auto;
-    padding-left: 0.6rem;
 }
 
 .product-change-img:hover {
@@ -95,6 +100,11 @@ textarea:focus-visible {
     padding-left: 1rem;
 }
 
+.product-name-div-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (max-width: 768px) {
     .product-img-div {
         padding-top: 1rem;
@@ -102,9 +112,9 @@ textarea:focus-visible {
     }
     .product-left-div {
         flex-direction: column;
+        padding-right: 0;
     }
     .product-change-img {
-        padding-top: 0.6rem;
         padding-left: 0;
     }
     .product-card-div {
@@ -129,5 +139,11 @@ textarea:focus-visible {
     }
     .product-description {
         padding-left: 0;
+    }
+    .product-name-div {
+        flex-direction: column;
+    }
+    .product-name-div-inputs {
+        flex-direction: column;
     }
 }

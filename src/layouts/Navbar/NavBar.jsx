@@ -19,22 +19,22 @@ const navItems = [
     },
     {
         icon: Products,
-        href: "/products",
+        href: "/Products",
         alt: "Acessar aba de Produtos",
     },
     {
         icon: Sales,
-        href: "/sales",
+        href: "/Sales",
         alt: "Acessar aba de Vendas",
     },
     {
         icon: Exchanges,
-        href: "/exchanges",
+        href: "/Exchanges",
         alt: "Acessar aba de Trocas",
     },
     {
         icon: SalesDetails,
-        href: "/sales-history",
+        href: "/Sales-History",
         alt: "Acessar aba de Histórico de Vendas",
     },
 ];
