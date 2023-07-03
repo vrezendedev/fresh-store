@@ -6,7 +6,7 @@ import HideTab from "@phosphor-icons/core/assets/regular/caret-circle-down.svg";
 import "./hider.css";
 
 export default function Hider(props) {
-    const [showComponent, setShowComponent] = createSignal(false);
+    const [showComponent, setShowComponent] = createSignal(props.show ?? false);
 
     return (
         <div>

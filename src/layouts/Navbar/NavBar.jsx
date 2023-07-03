@@ -48,23 +48,25 @@ export default function NavBar({ setNavbarOpened }) {
         <div class="navbar-div">
             <Show when={showNavBar()}>
                 <div class="navbar-icon-div">
-                    {navItems.map((obj) => (
-                        <A
-                            href={obj.href}
-                            onClick={() => {
-                                setShowNavBar((prev) => !prev);
-                                setNavbarOpened(showNavBar());
-                            }}
-                        >
-                            <img
-                                class="navbar-icon"
-                                src={obj.icon}
-                                draggable={false}
-                                role="button"
-                                alt={obj.alt}
-                            />
-                        </A>
-                    ))}
+                    <For each={navItems}>
+                        {(obj) => (
+                            <A
+                                href={obj.href}
+                                onClick={() => {
+                                    setShowNavBar((prev) => !prev);
+                                    setNavbarOpened(showNavBar());
+                                }}
+                            >
+                                <img
+                                    class="navbar-icon"
+                                    src={obj.icon}
+                                    draggable={false}
+                                    role="button"
+                                    alt={obj.alt}
+                                />
+                            </A>
+                        )}
+                    </For>
                 </div>
             </Show>
             <button

@@ -1,4 +1,4 @@
-import { createEffect, createSignal } from "solid-js";
+import { createSignal } from "solid-js";
 
 import EyeOpened from "@phosphor-icons/core/assets/regular/eye.svg";
 import EyeClosed from "@phosphor-icons/core/assets/regular/eye-slash.svg";
@@ -22,17 +22,19 @@ export default function TextInput({
 
     return (
         <div class="text-input-div" {...containerProps}>
-            <label>
-                {title}
-                <span
-                    style={{
-                        "font-size": "0.8rem",
-                        "font-weight": "normal",
-                    }}
-                >
-                    {required ? " *" : ""}
-                </span>
-            </label>
+            <Show when={title != ""}>
+                <label>
+                    {title}
+                    <span
+                        style={{
+                            "font-size": "0.8rem",
+                            "font-weight": "normal",
+                        }}
+                    >
+                        {required ? " *" : ""}
+                    </span>
+                </label>
+            </Show>
             <div
                 style={{
                     display: "flex",

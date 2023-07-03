@@ -142,6 +142,7 @@ textarea:focus-visible {
     }
     .product-name-div {
         flex-direction: column;
+        align-items: normal;
     }
     .product-name-div-inputs {
         flex-direction: column;

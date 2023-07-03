@@ -224,7 +224,7 @@ export default function ProductCard({
                 </div>
             </div>
             <div class="product-mode-div">
-                {modesButtons.map((obj) => generateModeButtons(obj))}
+                <For each={modesButtons}>{(obj) => generateModeButtons(obj)}</For>
             </div>
         </div>
     );

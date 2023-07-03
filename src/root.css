@@ -133,6 +133,16 @@ p {
     animation: rotate 1s forwards infinite;
 }
 
+.clickable-image {
+    width: 24px;
+}
+
+.clickable-image:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+}
+
 #overflow-div {
     width: 100%;
     height: 100%;
@@ -149,5 +159,11 @@ p {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .clickable-image:hover {
+        background-color: transparent;
     }
 }

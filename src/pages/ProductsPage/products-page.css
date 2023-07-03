@@ -23,11 +23,31 @@
     width: 32px;
 }
 
+.list-filter-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-filter-div input:focus-visible,
+textarea:focus-visible {
+    outline: none !important;
+    border: black 1px solid;
+    box-shadow: 0 0 10px black;
+}
+
 @media screen and (max-width: 768px) {
     .create-product-div {
         align-items: normal;
     }
     .create-product-show-btn-div img {
         width: 24px;
+    }
+    .list-filter-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }

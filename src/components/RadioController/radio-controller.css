@@ -1,0 +1,24 @@
+.radio-controller-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    padding-right: 0;
+    gap: 1rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.radio-controller-container img {
+    width: 32px;
+}
+
+@media screen and (max-width: 768px) {
+    .radio-controller-container img {
+        width: 24px;
+    }
+}
