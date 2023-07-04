@@ -22,7 +22,7 @@ export default function Header() {
 
     onMount(() => {
         let od = document.getElementById("overflow-div");
-        od.onscroll = scrollHandler;
+        od.addEventListener("scroll", scrollHandler);
     });
 
     return (
