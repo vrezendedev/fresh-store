@@ -24,8 +24,7 @@ export default function ProductsPage() {
 
     async function fetchListData() {
         if (page() == -1) return;
-
-        if (filterContent().length > 0) await searchFiltered();
+        //if (filterContent().length > 0) fetchFiltered
         //else fetchNonFiltered
         //await fetch
         //if returns [] then setPage(-1)
@@ -44,6 +43,7 @@ export default function ProductsPage() {
     }
 
     async function searchFiltered() {
+        //reset page to 0
         console.log("Searching filtered");
     }
 
@@ -73,7 +73,6 @@ export default function ProductsPage() {
                     }}
                 />
                 <img
-                    class="clickable-image"
                     src={Search}
                     role="button"
                     alt="Pesquisar"
@@ -82,6 +81,7 @@ export default function ProductsPage() {
                         width: "24px",
                         padding: "0.2rem",
                         "margin-right": "1rem",
+                        cursor: "pointer",
                     }}
                 />
             </div>
@@ -119,12 +119,7 @@ export default function ProductsPage() {
                         isEnded={() => page() == -1}
                         children={() => (
                             <For each={fetchedListData()}>
-                                {(obj) => (
-                                    <ProductCard
-                                        id={obj.id}
-                                        mode="update"
-                                    ></ProductCard>
-                                )}
+                                {(obj) => <ProductCard id={obj.id} mode="update" />}
                             </For>
                         )}
                     />
