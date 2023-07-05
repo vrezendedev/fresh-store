@@ -1,6 +1,6 @@
 import { createEffect, createSignal, onMount } from "solid-js";
 
-import View from "@phosphor-icons/core/assets/regular/info.svg";
+import Read from "@phosphor-icons/core/assets/regular/info.svg";
 import Update from "@phosphor-icons/core/assets/regular/floppy-disk.svg";
 import Delete from "@phosphor-icons/core/assets/regular/trash.svg";
 import Create from "@phosphor-icons/core/assets/regular/plus.svg";
@@ -14,9 +14,9 @@ import "./product-card.css";
 
 const modesButtons = [
     {
-        mode: "view",
-        alternateMode: "view",
-        img: View,
+        mode: "read",
+        alternateMode: "read",
+        img: Read,
         alt: "Usuário só pode visualizar os dados do produto.",
     },
     {
@@ -104,7 +104,7 @@ export default function ProductCard({
         return (
             <button
                 disabled={
-                    mode == "view" ||
+                    mode == "read" ||
                     (obj.alternateMode == "update" && !productDataChange())
                 }
                 onClick={() => btnFunction()}
@@ -117,7 +117,7 @@ export default function ProductCard({
                             obj.alternateMode == "update" && !productDataChange()
                                 ? "0.5"
                                 : "1",
-                        cursor: obj.mode != "view" ? "pointer" : "default",
+                        cursor: obj.mode != "read" ? "pointer" : "default",
                     }}
                 />
             </button>

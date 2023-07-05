@@ -98,15 +98,14 @@ export default function ProductsPage() {
             <h1 class="title-page">Produtos</h1>
             <div style={{ "padding-left": "1.5rem", "padding-top": "0.5rem" }}>
                 <h3 style={{ margin: "0" }}>Cadastro</h3>
-                <Hider content="Abrir o Cadastro" show={true}>
+                <Hider content="Abrir o Cadastro" show={false}>
                     <ProductCard />
                 </Hider>
                 <br />
                 <h3 style={{ margin: "0" }}>Listagem</h3>
-                <Hider content="Abrir a Listagem" show={true}>
+                <Hider content="Abrir a Listagem" show={false}>
                     <div class="list-filter-div">
                         <RadioController
-                            isFilter={true}
                             filter={() => setListFilter()}
                             rbLabels={["Código", "Nome"]}
                             setCurrentOption={(option) => setProductFilterBy(option)}
