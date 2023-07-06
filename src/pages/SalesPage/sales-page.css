@@ -1,0 +1,14 @@
+.sales-components-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .sales-components-container {
+        width: 100%;
+        flex-direction: column-reverse;
+        padding-left: 0;
+    }
+}

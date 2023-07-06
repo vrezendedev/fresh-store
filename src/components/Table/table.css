@@ -1,6 +1,5 @@
 .table-component-div {
-    height: 350px;
-    width: 50%;
+    height: 500px;
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
@@ -39,6 +38,12 @@
     }
     .table-container {
         column-gap: 0.2rem;
+    }
+    .table-header {
+        overflow-x: scroll;
+        white-space: nowrap;
+        text-align: left;
+        justify-content: left;
     }
     .table-row {
         overflow-x: scroll;

@@ -63,12 +63,12 @@ export default function ProductsPage() {
                     placeholder={""}
                     placeholderOnError="Filtro inválido."
                     onChange={(e) => setFilterContent(e)}
+                    value={filterContent}
                     containerProps={{
                         style: "margin-left: 0; padding-left: 0;",
                     }}
                     inputProps={{
                         type: "text",
-                        value: filterContent(),
                         style: "margin: 0; padding: 0; padding-left:0.5rem;  ",
                     }}
                 />

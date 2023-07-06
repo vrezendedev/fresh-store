@@ -157,9 +157,9 @@ export default function ProductCard({
                                 placeholderOnError="Nome é inválido."
                                 onChange={(e) => setProductName(e)}
                                 onValidate={(e) => {}}
+                                value={productName}
                                 inputProps={{
                                     type: "text",
-                                    value: productName(),
                                 }}
                             />
                             <TextInput
@@ -169,9 +169,9 @@ export default function ProductCard({
                                 placeholderOnError="Nome é inválido."
                                 onChange={(e) => setProductCode(e)}
                                 onValidate={(e) => {}}
+                                value={productCode}
                                 inputProps={{
                                     type: "text",
-                                    value: productCode(),
                                 }}
                             />
                         </div>
@@ -183,10 +183,10 @@ export default function ProductCard({
                                 placeholderOnError="Preço é inválido."
                                 onChange={(e) => setProductPrice(e)}
                                 onValidate={(e) => {}}
+                                value={productPrice}
                                 inputProps={{
                                     type: "number",
                                     step: "0.1",
-                                    value: productPrice(),
                                 }}
                             />
                             <TextInput
@@ -196,10 +196,10 @@ export default function ProductCard({
                                 placeholderOnError="Qtd. é inválida."
                                 onChange={(e) => setProductStock(e)}
                                 onValidate={(e) => {}}
+                                value={productStock}
                                 inputProps={{
                                     type: "number",
                                     step: "1",
-                                    value: productStock(),
                                 }}
                             />
                         </div>
@@ -212,8 +212,8 @@ export default function ProductCard({
                             placeholderOnError="Descrição ultrapassou o limite de caractéres"
                             onChange={(e) => setProductDescription(e)}
                             onValidate={(e) => {}}
+                            value={productDescription}
                             inputProps={{
-                                value: productDescription(),
                                 style: "height: 194px",
                             }}
                             containerProps={{

@@ -37,7 +37,9 @@ export default function Hider(props) {
                 />
             </div>
             <Show when={showComponent()}>
-                <div class="children-div">{props.children}</div>
+                <div class="children-div" {...props.childrenStyle}>
+                    {props.children}
+                </div>
             </Show>
         </div>
     );

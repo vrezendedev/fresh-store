@@ -14,6 +14,8 @@ export default function TextInput({
     onValidate = () => {
         return false;
     },
+    value = () => {},
+    labelProps,
     containerProps,
     inputProps,
 }) {
@@ -23,7 +25,7 @@ export default function TextInput({
     return (
         <div class="text-input-div" {...containerProps}>
             <Show when={title != ""}>
-                <label>
+                <label {...labelProps}>
                     {title}
                     <span
                         style={{
@@ -44,6 +46,7 @@ export default function TextInput({
                 }}
             >
                 <input
+                    value={value()}
                     placeholder={!hasError() ? placeholder : placeholderOnError}
                     onChange={(e) => {
                         e.target.value = e.target.value.trim();

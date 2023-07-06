@@ -9,13 +9,6 @@
     box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
-.product-card-div input:focus-visible,
-textarea:focus-visible {
-    outline: none !important;
-    border: black 1px solid;
-    box-shadow: 0 0 10px black;
-}
-
 .product-info-div {
     display: flex;
     flex-direction: row;

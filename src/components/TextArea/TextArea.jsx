@@ -11,6 +11,7 @@ export default function TextArea({
     onValidate = () => {
         return false;
     },
+    value,
     containerProps,
     inputProps,
 }) {
@@ -46,6 +47,7 @@ export default function TextArea({
                     style={{
                         border: !hasError() ? "none" : "red solid 1px",
                     }}
+                    value={value()}
                     {...inputProps}
                     class="text-area-input"
                 />

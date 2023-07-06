@@ -9,11 +9,12 @@ export default function Table({
     labels = [],
     data = [],
     remove = null,
+    tableContainerProps,
 }) {
     const columns = labels.length + 1 + +(remove != null);
 
     return (
-        <div class="table-component-div">
+        <div class="table-component-div" {...tableContainerProps}>
             <p style={{ "font-size": "1rem", "font-weight": "bold" }}>{title}</p>
             <div
                 class="table-container"
@@ -44,7 +45,10 @@ export default function Table({
                             <span class="table-row">{obj[key]}</span>
                         ))}
                         <Show when={remove != null}>
-                            <div class="table-row">
+                            <div
+                                class="table-row"
+                                style={{ "justify-content": "center" }}
+                            >
                                 <img
                                     src={Delete}
                                     role="button"

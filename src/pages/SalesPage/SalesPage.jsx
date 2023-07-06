@@ -2,8 +2,11 @@ import { createSignal } from "solid-js";
 
 import Hider from "~/components/Hider/Hider";
 import Table from "~/components/Table/Table";
+import TextInput from "~/components/TextInput/TextInput";
 
 import "./sales-page.css";
+
+import ClientCard from "~/layouts/ClientCard/ClientCard";
 
 export default function SalesPage() {
     const labels = [
@@ -42,22 +45,60 @@ export default function SalesPage() {
         },
     ]);
 
+    const [searchProduct, setSearchProduct] = createSignal("");
+
     return (
         <div style={{ "padding-left": "0.5rem", "padding-right": "1rem" }}>
             <h1 class="title-page">Vendas</h1>
             <div style={{ "padding-left": "1.5rem", "padding-top": "0.5rem" }}>
                 <h3 style={{ margin: "0" }}>Cadastro</h3>
                 <Hider content="Abrir o Cadastro" show={false}>
-                    <Table
-                        title="Lista de Produtos"
-                        labels={labels}
-                        data={productList}
-                        remove={(obj) =>
-                            setProductList((prev) =>
-                                prev.filter((o) => o.productCode != obj.productCode)
-                            )
-                        }
-                    />
+                    <div class="sales-components-container">
+                        <div
+                            style={{
+                                display: "flex",
+                                "flex-direction": "column",
+                                flex: "1",
+                            }}
+                        >
+                            <Table
+                                title="Lista de Produtos"
+                                labels={labels}
+                                data={productList}
+                                remove={(obj) =>
+                                    setProductList((prev) =>
+                                        prev.filter(
+                                            (o) => o.productCode != obj.productCode
+                                        )
+                                    )
+                                }
+                            />
+                        </div>
+                        <div
+                            style={{
+                                display: "flex",
+                                "flex-direction": "column",
+                                flex: "1",
+                            }}
+                        >
+                            <div
+                                style={{
+                                    flex: 1,
+                                    display: "flex",
+                                    "flex-direction": "row",
+                                }}
+                            >
+                                <ClientCard />
+                            </div>
+                            <div
+                                style={{
+                                    flex: 2,
+                                    display: "flex",
+                                    "flex-direction": "row",
+                                }}
+                            ></div>
+                        </div>
+                    </div>
                 </Hider>
             </div>
         </div>

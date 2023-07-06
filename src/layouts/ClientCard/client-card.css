@@ -1,0 +1,29 @@
+.client-card-div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.client-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.client-info-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+    .client-card-div {
+        display: flex;
+        width: 98%;
+    }
+}

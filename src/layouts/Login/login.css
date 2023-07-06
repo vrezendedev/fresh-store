@@ -9,6 +9,13 @@
     background-color: white;
 }
 
+.login-card input:focus-visible,
+textarea:focus-visible {
+    outline: none !important;
+    border: var(--tradewind) 1px solid;
+    box-shadow: 0 0 10px var(--tradewind);
+}
+
 @media screen and (min-width: 1024px) {
     .login-card {
         width: 650px;

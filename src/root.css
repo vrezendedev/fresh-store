@@ -57,8 +57,8 @@ textarea {
 input:focus-visible,
 textarea:focus-visible {
     outline: none !important;
-    border: var(--tradewind) 1px solid;
-    box-shadow: 0 0 10px var(--tradewind);
+    border: none;
+    box-shadow: 0 0 10px black;
 }
 
 label {

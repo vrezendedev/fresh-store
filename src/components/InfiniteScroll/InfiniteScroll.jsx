@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onCleanup, onMount } from "solid-js";
+import { createSignal, onCleanup, onMount } from "solid-js";
 
 import Spinner from "@phosphor-icons/core/assets/regular/spinner.svg";
 
