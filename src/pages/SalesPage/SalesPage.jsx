@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js";
+import { createEffect, createSignal } from "solid-js";
 
 import Hider from "~/components/Hider/Hider";
 import Table from "~/components/Table/Table";
@@ -7,6 +7,7 @@ import TextInput from "~/components/TextInput/TextInput";
 import "./sales-page.css";
 
 import ClientCard from "~/layouts/ClientCard/ClientCard";
+import Select from "~/components/Select/Select";
 
 export default function SalesPage() {
     const labels = [
@@ -18,34 +19,41 @@ export default function SalesPage() {
         { label: "Total", key: "total" },
     ];
 
-    const [productList, setProductList] = createSignal([
-        {
-            productCode: "3095820",
-            productName: "Switch Lite",
-            quantity: 1,
-            price: (1920.5).toFixed(2),
-            discount: 0.2,
-            total: 1536.4,
-        },
-        {
-            productCode: "3095232",
-            productName: "Playstation 4",
-            quantity: 1,
-            price: (3900.0).toFixed(2),
-            discount: 0.1,
-            total: 3510,
-        },
-        {
-            productCode: "3094198",
-            productName: "Costela Bovina Wagyu",
-            quantity: 1,
-            price: (1000.0).toFixed(2),
-            discount: 0,
-            total: 1000,
-        },
-    ]);
+    const [productList, setProductList] = createSignal([]);
 
-    const [searchProduct, setSearchProduct] = createSignal("");
+    const [client, setClient] = createSignal({});
+
+    const [searchOptions, setSearchOptions] = createSignal([]);
+    const [searchedProduct, setSearchedProduct] = createSignal("");
+    const [selectedSearchProduct, setSelectedSearchProduct] = createSignal("");
+    const [isSelectLoading, setIsSelectLoading] = createSignal(false);
+    const [isScanMode, setIsScanMode] = createSignal(false);
+
+    async function handleSearchTextChange() {
+        //fetch options
+        setIsSelectLoading(true);
+        setTimeout(() => {
+            setSearchOptions([
+                { id: 1, description: "teste" },
+                { id: 2, description: "teste2" },
+            ]);
+            setSearchedProduct("");
+            if (isScanMode()) setSearchOptions((prev) => [prev[0]]);
+            setIsSelectLoading(false);
+        }, 2000);
+    }
+
+    async function handleSearchSelectChange() {
+        console.log(selectedSearchProduct());
+    }
+
+    async function handleSelectButtonClick() {
+        setIsScanMode((prev) => !prev);
+    }
+
+    createEffect(() => {
+        console.log(client());
+    }, [client]);
 
     return (
         <div style={{ "padding-left": "0.5rem", "padding-right": "1rem" }}>
@@ -88,7 +96,38 @@ export default function SalesPage() {
                                     "flex-direction": "row",
                                 }}
                             >
-                                <ClientCard />
+                                <ClientCard getClientData={(e) => setClient(e)} />
+                            </div>
+                            <div
+                                style={{
+                                    flex: 1,
+                                    display: "flex",
+                                    "flex-direction": "row",
+                                    "align-items": "flex-start",
+                                }}
+                            >
+                                <Select
+                                    valueKey="id"
+                                    descriptionKey="description"
+                                    isLoading={isSelectLoading}
+                                    options={searchOptions}
+                                    textInputValue={searchedProduct}
+                                    onTextInput={() => setSearchOptions([])}
+                                    onTextChange={(e) => {
+                                        setSearchedProduct(e);
+                                        handleSearchTextChange();
+                                    }}
+                                    onSelectChange={(e) => {
+                                        setSelectedSearchProduct(
+                                            searchOptions().filter(
+                                                (obj) => obj.id == e
+                                            )[0]
+                                        );
+                                        handleSearchSelectChange();
+                                    }}
+                                    hasButton={true}
+                                    onButtonClick={() => handleSelectButtonClick()}
+                                />
                             </div>
                             <div
                                 style={{

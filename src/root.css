@@ -44,7 +44,8 @@ body {
 }
 
 input,
-textarea {
+textarea,
+select {
     font-family: inherit;
     height: 2rem;
     margin: 0.4rem 0rem 0.5rem 0;

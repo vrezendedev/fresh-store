@@ -9,7 +9,7 @@ import Spinner from "@phosphor-icons/core/assets/regular/spinner.svg";
 
 import "./client-card.css";
 
-export default function ClientCard() {
+export default function ClientCard({ getClientData }) {
     const [isSearching, setIsSearching] = createSignal(false);
     const [isNewClient, setIsNewClient] = createSignal(false);
     const [clientName, setClientName] = createSignal("");
@@ -26,13 +26,21 @@ export default function ClientCard() {
     async function fetchClient() {
         //fetch
         if (clientCPF().length == 0) return;
-        console.log(clientCPF());
         setIsSearching(true);
         setTimeout(() => {
             setIsNewClient(true);
             setIsSearching(false);
         }, 2000);
     }
+
+    createEffect(() => {
+        getClientData({
+            name: clientName(),
+            email: clientEmail(),
+            cpf: clientCPF(),
+            contact: clientContact(),
+        });
+    }, [clientName, clientEmail, clientCPF, clientContact]);
 
     return (
         <div class="client-card-div">
@@ -43,6 +51,7 @@ export default function ClientCard() {
                         display: "flex",
                         "align-items": "center",
                         "justify-content": "center",
+                        height: "24px",
                     }}
                 >
                     <Show when={isSearching()}>

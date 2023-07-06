@@ -5,6 +5,11 @@
     gap: 0.5rem;
 }
 
+.add-product-container {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (max-width: 768px) {
     .sales-components-container {
         width: 100%;

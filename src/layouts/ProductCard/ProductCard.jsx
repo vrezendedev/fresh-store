@@ -164,7 +164,7 @@ export default function ProductCard({
                             />
                             <TextInput
                                 title="Código"
-                                required={false}
+                                required={true}
                                 placeholder="Código do Produto."
                                 placeholderOnError="Nome é inválido."
                                 onChange={(e) => setProductCode(e)}
