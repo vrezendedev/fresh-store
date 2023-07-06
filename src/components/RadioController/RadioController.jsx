@@ -1,4 +1,4 @@
-import { For, createEffect, createSignal, createContext } from "solid-js";
+import { For, createEffect, createSignal } from "solid-js";
 
 import Filter from "@phosphor-icons/core/assets/regular/funnel.svg";
 import RadioButton from "../RadioButton/RadioButton";

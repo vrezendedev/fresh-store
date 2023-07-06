@@ -12,7 +12,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.radio-button-container p {
+.radio-button-container span {
     font-family: inherit;
     padding-left: 0.5rem;
     font-size: 0.9rem;

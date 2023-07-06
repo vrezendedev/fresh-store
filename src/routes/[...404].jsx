@@ -22,11 +22,11 @@ export default function NotFound() {
                     supervisor a fim que este entre em contato com a equipe Fresh
                     Store.
                 </p>
-                <p style={{ "padding-top": "1rem" }}>
+                <span style={{ "padding-top": "1rem" }}>
                     <a href="/" style={{ color: "black" }}>
                         Clique aqui e retorne à página principal.
                     </a>
-                </p>
+                </span>
             </div>
         </div>
     );

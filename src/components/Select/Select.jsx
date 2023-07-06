@@ -57,6 +57,7 @@ export default function Select({
                     }}
                     style={{
                         width: "24px",
+                        padding: "0.1rem",
                         cursor: "pointer",
                         "align-self": "center",
                         "border-radius": "5px",

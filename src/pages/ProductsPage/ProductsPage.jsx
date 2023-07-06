@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onMount } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 
 import ProductCard from "~/layouts/ProductCard/ProductCard";
 import RadioController from "~/components/RadioController/RadioController";

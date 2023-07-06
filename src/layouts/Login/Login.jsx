@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onMount } from "solid-js";
+import { createEffect, createSignal } from "solid-js";
 
 import { useLogger } from "../../_contexts/UserContext";
 

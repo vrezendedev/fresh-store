@@ -45,7 +45,9 @@ export default function ClientCard({ getClientData }) {
     return (
         <div class="client-card-div">
             <div class="client-card-header">
-                <p style={{ "font-size": "1rem", "font-weight": "bold" }}>Cliente</p>
+                <span style={{ "font-size": "1rem", "font-weight": "bold" }}>
+                    Cliente
+                </span>
                 <div
                     style={{
                         display: "flex",
@@ -74,7 +76,7 @@ export default function ClientCard({ getClientData }) {
             <div class="client-info-div">
                 <TextInput
                     title="Nome"
-                    required={false}
+                    required={true}
                     placeholder="Digite o nome do cliente."
                     placeholderOnError="Nome do cliente inválido."
                     onChange={(e) => setClientName(e)}

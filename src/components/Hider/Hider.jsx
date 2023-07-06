@@ -1,4 +1,4 @@
-import { Show, createSignal, createEffect } from "solid-js";
+import { Show, createSignal } from "solid-js";
 
 import ShowTab from "@phosphor-icons/core/assets/regular/caret-circle-right.svg";
 import HideTab from "@phosphor-icons/core/assets/regular/caret-circle-down.svg";

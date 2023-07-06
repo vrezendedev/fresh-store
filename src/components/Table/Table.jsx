@@ -1,4 +1,4 @@
-import { For, onMount } from "solid-js";
+import { For } from "solid-js";
 
 import Delete from "@phosphor-icons/core/assets/regular/trash.svg";
 
@@ -15,7 +15,9 @@ export default function Table({
 
     return (
         <div class="table-component-div" {...tableContainerProps}>
-            <p style={{ "font-size": "1rem", "font-weight": "bold" }}>{title}</p>
+            <span style={{ "font-size": "1rem", "font-weight": "bold" }}>
+                {title}
+            </span>
             <div
                 class="table-container"
                 style={{

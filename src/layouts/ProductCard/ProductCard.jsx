@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onMount } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 
 import Read from "@phosphor-icons/core/assets/regular/info.svg";
 import Update from "@phosphor-icons/core/assets/regular/floppy-disk.svg";

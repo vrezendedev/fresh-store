@@ -22,7 +22,7 @@ export default function RadioButton({
                 }}
                 alt={`Selecionar ${label}`}
             />
-            <p>{label}</p>
+            <span>{label}</span>
         </div>
     );
 }
