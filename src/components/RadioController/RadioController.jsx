@@ -8,6 +8,7 @@ import "./radio-controller.css";
 export default function RadioController({
     rbLabels = [],
     filter = null,
+    clean = () => {},
     setCurrentOption = () => {},
     controllerContainerProps,
     radioContainerProps,
@@ -17,6 +18,13 @@ export default function RadioController({
     createEffect(() => {
         setCurrentOption(currentChecked());
     }, [currentChecked]);
+
+    createEffect(() => {
+        if (clean()) {
+            setCurrentChecked("");
+            setCurrentOption(currentChecked());
+        }
+    }, [clean]);
 
     return (
         <div class="radio-controller-container" {...controllerContainerProps}>

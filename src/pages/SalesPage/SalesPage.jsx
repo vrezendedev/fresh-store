@@ -4,12 +4,13 @@ import Hider from "~/components/Hider/Hider";
 import Table from "~/components/Table/Table";
 import ClientCard from "~/layouts/ClientCard/ClientCard";
 import Select from "~/components/Select/Select";
+import RadioController from "~/components/RadioController/RadioController";
+import TextInput from "~/components/TextInput/TextInput";
 
 import Placeholder from "@phosphor-icons/core/assets/regular/placeholder.svg";
 import Add from "@phosphor-icons/core/assets/regular/plus.svg";
 
 import "./sales-page.css";
-import TextInput from "~/components/TextInput/TextInput";
 
 export default function SalesPage() {
     const labels = [
@@ -48,6 +49,7 @@ export default function SalesPage() {
 
     const [clientIncome, setClientIncome] = createSignal(0);
     const [total, setTotal] = createSignal(0);
+    const [paymentMethod, setPaymentMethod] = createSignal("");
     const [isFinishing, setIsFinishing] = createSignal(false);
 
     const [cancelled, setCancelled] = createSignal(false);
@@ -92,6 +94,7 @@ export default function SalesPage() {
         setProductIdentification(null);
         setClientIncome(0);
         setCancelled(false);
+        setPaymentMethod("");
     }
 
     async function handleFinishSale() {}
@@ -340,15 +343,33 @@ export default function SalesPage() {
                             <div class="total-child-container">
                                 <span
                                     style={{
-                                        "align-self": "center",
-                                        "padding-top": "0.5rem",
+                                        flex: "1",
+                                        padding: "0.5rem",
                                     }}
                                 >
                                     Total: R$ {total()}
                                 </span>
+                                <div style={{ padding: "0.5rem", flex: "1" }}>
+                                    <RadioController
+                                        rbLabels={[
+                                            "Dinheiro",
+                                            "Débito",
+                                            "Crédito",
+                                            "Boleto",
+                                            "Pix",
+                                        ]}
+                                        controllerContainerProps={{
+                                            style: "margin-bottom: 0",
+                                        }}
+                                        setCurrentOption={(option) =>
+                                            setPaymentMethod(option)
+                                        }
+                                        clean={() => cancelled()}
+                                    />
+                                </div>
                                 <div class="total-change-container">
                                     <TextInput
-                                        title="Recebido para Pagamento"
+                                        title="Recebido"
                                         required={false}
                                         placeholder="Digite o valor recebido."
                                         placeholderOnError="Qtd. recebida é inválida."
