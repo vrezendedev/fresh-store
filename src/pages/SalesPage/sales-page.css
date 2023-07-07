@@ -1,9 +1,8 @@
 .sales-components-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    flex: 1;
     gap: 0.5rem;
-    margin-bottom: 1rem;
 }
 
 .add-product-container {
@@ -34,7 +33,7 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-.total-container {
+.total-child-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,6 +44,8 @@
     border-radius: 10px;
     box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.2);
     gap: 0.5rem;
+    flex: 1;
+    flex-wrap: wrap;
 }
 
 .total-change-container {
@@ -54,15 +55,38 @@
     flex-wrap: wrap;
 }
 
+.total-finish-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 0.5rem;
+}
+
+.finish-buttons {
+    flex: 1;
+    color: black;
+    background-color: white;
+    box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.finish-buttons:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: none;
+}
+
 @media screen and (max-width: 768px) {
     .sales-components-container {
         width: 100%;
         flex-direction: column-reverse;
         padding-left: 0;
-        gap: 0.5rem;
     }
 
     .add-product-info-container {
+        flex-direction: column;
+    }
+    .total-finish-container {
         flex-direction: column;
     }
 }

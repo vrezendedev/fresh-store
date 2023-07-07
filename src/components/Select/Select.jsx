@@ -27,6 +27,7 @@ export default function Select({
                 onInput={() => onTextInput()}
                 onChange={(e) => {
                     e.target.value = e.target.value.trim();
+                    if (e.target.value.length == 0) return;
                     onTextChange(e.target.value);
                 }}
             />

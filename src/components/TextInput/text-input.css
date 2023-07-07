@@ -15,7 +15,7 @@
 }
 
 .text-input-div input:disabled {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05);
     box-shadow: none;
 }
 
