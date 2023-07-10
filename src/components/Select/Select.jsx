@@ -22,15 +22,17 @@ export default function Select({
 
     return (
         <div class="select-container" {...containerProps}>
-            <input
-                value={textInputValue()}
-                onInput={() => onTextInput()}
-                onChange={(e) => {
-                    e.target.value = e.target.value.trim();
-                    if (e.target.value.length == 0) return;
-                    onTextChange(e.target.value);
-                }}
-            />
+            <Show when={onTextInput != null}>
+                <input
+                    value={textInputValue()}
+                    onInput={() => onTextInput()}
+                    onChange={(e) => {
+                        e.target.value = e.target.value.trim();
+                        if (e.target.value.length == 0) return;
+                        onTextChange(e.target.value);
+                    }}
+                />
+            </Show>
             <select onChange={(e) => onSelectChange(e.target.value)}>
                 <For each={options()}>
                     {(obj) => (

@@ -22,6 +22,14 @@ export default function SalesPage() {
         { label: "Total", key: "total" },
     ];
 
+    const installments = () => {
+        let arr = [];
+        for (let i = 1; i < 13; i++) {
+            arr.push({ number: i });
+        }
+        return arr;
+    };
+
     const [productList, setProductList] = createSignal([
         {
             productCode: 312312,
@@ -50,6 +58,8 @@ export default function SalesPage() {
     const [clientIncome, setClientIncome] = createSignal(0);
     const [total, setTotal] = createSignal(0);
     const [paymentMethod, setPaymentMethod] = createSignal("");
+    const [numberOfInstallments, setNumberOfInstallments] = createSignal(0);
+    const [monthlyInterest, setMonthlyInterest] = createSignal(0);
     const [isFinishing, setIsFinishing] = createSignal(false);
 
     const [cancelled, setCancelled] = createSignal(false);
@@ -95,6 +105,8 @@ export default function SalesPage() {
         setClientIncome(0);
         setCancelled(false);
         setPaymentMethod("");
+        setNumberOfInstallments(0);
+        setMonthlyInterest(0);
     }
 
     async function handleFinishSale() {}
@@ -275,9 +287,12 @@ export default function SalesPage() {
                                                         step: "1",
                                                         min: "1",
                                                     }}
+                                                    labelProps={{
+                                                        style: "font-size: 0.9rem",
+                                                    }}
                                                 />
                                                 <TextInput
-                                                    title="Desconto"
+                                                    title="Desconto (%)"
                                                     required={false}
                                                     placeholder="Digite a qtd. do produto."
                                                     placeholderOnError="Qtd. é inválida."
@@ -288,9 +303,12 @@ export default function SalesPage() {
                                                     value={productDiscount}
                                                     inputProps={{
                                                         type: "number",
-                                                        max: "1",
+                                                        max: "100",
                                                         min: "0",
-                                                        step: "0.1",
+                                                        step: "1",
+                                                    }}
+                                                    labelProps={{
+                                                        style: "font-size: 0.9rem",
                                                     }}
                                                 />
                                                 <TextInput
@@ -307,6 +325,9 @@ export default function SalesPage() {
                                                         type: "number",
                                                         min: "1",
                                                         step: "0.5",
+                                                    }}
+                                                    labelProps={{
+                                                        style: "font-size: 0.9rem",
                                                     }}
                                                 />
                                                 <div
@@ -349,7 +370,15 @@ export default function SalesPage() {
                                 >
                                     Total: R$ {total()}
                                 </span>
-                                <div style={{ padding: "0.5rem", flex: "1" }}>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        "flex-direction": "column",
+                                        padding: "0.5rem",
+                                        flex: "1",
+                                        gap: "1rem",
+                                    }}
+                                >
                                     <RadioController
                                         rbLabels={[
                                             "Dinheiro",
@@ -361,11 +390,74 @@ export default function SalesPage() {
                                         controllerContainerProps={{
                                             style: "margin-bottom: 0",
                                         }}
-                                        setCurrentOption={(option) =>
-                                            setPaymentMethod(option)
-                                        }
+                                        setCurrentOption={(option) => {
+                                            setPaymentMethod(option);
+                                            setMonthlyInterest(0);
+                                        }}
                                         clean={() => cancelled()}
                                     />
+                                    <Show when={paymentMethod() === "Crédito"}>
+                                        <div class="credit-installment-container">
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    "flex-direction": "column",
+                                                    flex: "1",
+                                                    gap: "0.2rem",
+                                                }}
+                                            >
+                                                <label
+                                                    style={{ "font-size": "0.9rem" }}
+                                                >
+                                                    Parcelado em:
+                                                    <span
+                                                        style={{
+                                                            "font-size": "0.8rem",
+                                                            "font-weight": "normal",
+                                                        }}
+                                                    >
+                                                        {" "}
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <Select
+                                                    valueKey="number"
+                                                    descriptionKey="number"
+                                                    options={installments}
+                                                    onTextInput={null}
+                                                    onTextChange={null}
+                                                    onSelectChange={(e) =>
+                                                        setNumberOfInstallments(e)
+                                                    }
+                                                />
+                                            </div>
+
+                                            <TextInput
+                                                title="Juros ao mês (%):"
+                                                required={true}
+                                                placeholder="Digite o valor do juros mensal."
+                                                placeholderOnError="O valor do juros é inválido."
+                                                disabled={false}
+                                                onChange={(e) =>
+                                                    setMonthlyInterest(e)
+                                                }
+                                                onValidate={(e) => {}}
+                                                value={monthlyInterest}
+                                                containerProps={{
+                                                    style: "flex: 1; margin: 0",
+                                                }}
+                                                labelProps={{
+                                                    style: "font-size: 0.9rem",
+                                                }}
+                                                inputProps={{
+                                                    type: "number",
+                                                    min: "0",
+                                                    max: "100",
+                                                    step: "1",
+                                                }}
+                                            />
+                                        </div>
+                                    </Show>
                                 </div>
                                 <div class="total-change-container">
                                     <TextInput
@@ -407,18 +499,18 @@ export default function SalesPage() {
                                     />
                                 </div>
                             </div>
-                            <div class="total-child-container">
-                                <button
-                                    class="finish-buttons"
-                                    onClick={() => handleFinishSale()}
-                                >
-                                    Finalizar
-                                </button>
+                            <div class="total-buttons-container">
                                 <button
                                     class="finish-buttons"
                                     onClick={() => handleCancelSale()}
                                 >
                                     Cancelar
+                                </button>
+                                <button
+                                    class="finish-buttons"
+                                    onClick={() => handleFinishSale()}
+                                >
+                                    Finalizar
                                 </button>
                             </div>
                         </div>

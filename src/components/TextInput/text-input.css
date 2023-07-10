@@ -5,6 +5,10 @@
     gap: 0.2rem;
 }
 
+.text-input-div input {
+    background-color: white;
+}
+
 .btn-password-visibility {
     margin: 0.4rem, 0, 0, 0;
     padding: 0;
