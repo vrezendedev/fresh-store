@@ -13,13 +13,14 @@ export default function TextArea({
     },
     value,
     containerProps,
+    labelProps,
     inputProps,
 }) {
     const [hasError, setHasError] = createSignal(false);
 
     return (
         <div class="text-area-div" {...containerProps}>
-            <label>
+            <label {...labelProps}>
                 {title}
                 <span
                     style={{
@@ -33,7 +34,7 @@ export default function TextArea({
             <div
                 style={{
                     display: "flex",
-                    "flex-direction": "column",
+                    "flex-direction": "row",
                     "align-items": "center",
                 }}
             >

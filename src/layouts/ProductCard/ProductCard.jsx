@@ -209,12 +209,12 @@ export default function ProductCard({
                             title="Descrição"
                             required={false}
                             placeholder="Campo para descrição ou observações."
-                            placeholderOnError="Descrição ultrapassou o limite de caractéres"
+                            placeholderOnError="Descrição ultrapassou o limite de caractéres."
                             onChange={(e) => setProductDescription(e)}
                             onValidate={(e) => {}}
                             value={productDescription}
                             inputProps={{
-                                style: "height: 194px",
+                                style: "height: 194px; width: 300px",
                             }}
                             containerProps={{
                                 style: "padding-left: 0.2rem",

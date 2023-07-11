@@ -52,7 +52,7 @@ export default function Select({
                 <img
                     src={Barcode}
                     role="button"
-                    alt="Modo Especial"
+                    alt="Modo Barras"
                     draggable={false}
                     onClick={() => {
                         setButtonPressed((prev) => !prev);
@@ -60,6 +60,7 @@ export default function Select({
                     }}
                     style={{
                         width: "24px",
+                        height: "24px",
                         padding: "0.1rem",
                         cursor: "pointer",
                         "align-self": "center",

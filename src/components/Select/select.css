@@ -21,7 +21,7 @@
     padding-left: 0.3rem;
     padding-bottom: 0;
     font-family: inherit;
-    box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
 .select-container select:focus > option:checked {
@@ -58,7 +58,7 @@
 
 @media screen and (max-width: 1440px) {
     .select-container input {
-        width: 91%;
+        width: 90%;
     }
 }
 
@@ -70,7 +70,7 @@
 
 @media screen and (max-width: 1024px) {
     .select-container input {
-        width: 88%;
+        width: 86%;
     }
 }
 
@@ -100,7 +100,7 @@
 
 @media screen and (max-width: 426px) {
     .select-container input {
-        width: 82%;
+        width: 79%;
     }
 }
 

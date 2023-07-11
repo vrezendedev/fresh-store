@@ -126,8 +126,8 @@ export default function SalesPage() {
         <div style={{ "padding-left": "0.5rem", "padding-right": "1rem" }}>
             <h1 class="title-page">Vendas</h1>
             <div style={{ "padding-left": "1.5rem", "padding-top": "0.5rem" }}>
-                <h3 style={{ margin: "0" }}>Cadastro</h3>
-                <Hider content="Abrir o Cadastro" show={false}>
+                <h3 style={{ margin: "0" }}>Cadastrar</h3>
+                <Hider content="Abrir e Cadastrar" show={false}>
                     <div
                         style={{
                             display: "flex",
