@@ -2,10 +2,10 @@ import { createSignal } from "solid-js";
 
 import RadioController from "~/components/RadioController/RadioController";
 import Select from "~/components/Select/Select";
-
-import "./create-exchange.css";
 import TextArea from "~/components/TextArea/TextArea";
 import TextInput from "~/components/TextInput/TextInput";
+
+import "./create-exchange.css";
 
 export default function CreateExchange() {
     const [searchOption, setSearchOption] = createSignal("");
