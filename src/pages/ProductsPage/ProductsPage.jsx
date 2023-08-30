@@ -99,7 +99,7 @@ export default function ProductsPage() {
             <div style={{ "padding-left": "1.5rem", "padding-top": "0.5rem" }}>
                 <h3 style={{ margin: "0" }}>Cadastrar</h3>
                 <Hider content="Abrir e Cadastrar" show={false}>
-                    <ProductCard />
+                    <ProductCard enableChangeProductType />
                 </Hider>
                 <br />
                 <h3 style={{ margin: "0" }}>Consultar</h3>

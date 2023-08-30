@@ -20,6 +20,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding-top: 0.5rem;
 }
 
 .product-mode-div {
@@ -29,15 +30,18 @@
     justify-content: space-evenly;
 }
 
-.product-mode-div img {
+.product-mode-div img,
+.product-name-div img {
     width: 32px;
 }
 
-.product-mode-div button {
+.product-mode-div button,
+.product-name-div button {
     background-color: transparent;
 }
 
-.product-mode-div button:disabled {
+.product-mode-div button:disabled,
+.product-name-div button:disabled {
     cursor: default;
 }
 
@@ -91,11 +95,13 @@
     align-content: flex-start;
     margin: 0;
     padding-left: 1rem;
+    padding-top: 0.75rem;
 }
 
 .product-name-div-inputs {
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
 }
 
 @media screen and (max-width: 768px) {

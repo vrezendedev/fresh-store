@@ -6,7 +6,7 @@ import EyeClosed from "@phosphor-icons/core/assets/regular/eye-slash.svg";
 import "./text-input.css";
 
 export default function TextInput({
-    title = "",
+    title,
     required = false,
     placeholder,
     placeholderOnError = "Obrigatório preencher esse campo.",
@@ -24,9 +24,9 @@ export default function TextInput({
 
     return (
         <div class="text-input-div" {...containerProps}>
-            <Show when={title != ""}>
+            <Show when={typeof title == "function" ? title() != "" : title != 0}>
                 <label {...labelProps}>
-                    {title}
+                    {typeof title == "function" ? title() : title}
                     <span
                         style={{
                             "font-size": "0.8rem",

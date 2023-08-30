@@ -1,4 +1,4 @@
-import { createSignal, onMount } from "solid-js";
+import { createEffect, createSignal, onMount } from "solid-js";
 
 import Read from "@phosphor-icons/core/assets/regular/info.svg";
 import Update from "@phosphor-icons/core/assets/regular/floppy-disk.svg";
@@ -6,6 +6,7 @@ import Delete from "@phosphor-icons/core/assets/regular/trash.svg";
 import Create from "@phosphor-icons/core/assets/regular/plus.svg";
 import SearchImage from "@phosphor-icons/core/assets/regular/image-square.svg";
 import Placeholder from "@phosphor-icons/core/assets/regular/placeholder.svg";
+import ChangeProductState from "@phosphor-icons/core/assets/regular/arrows-clockwise.svg";
 
 import TextInput from "~/components/TextInput/TextInput";
 import TextArea from "~/components/TextArea/TextArea";
@@ -46,6 +47,8 @@ export default function ProductCard({
     description = "",
     price = 0,
     stock = 0,
+    enableChangeProductType = false,
+    productSale = false,
     mode = "create",
 }) {
     const [productImage, setProductImage] = createSignal(Placeholder);
@@ -55,6 +58,15 @@ export default function ProductCard({
     const [productPrice, setProductPrice] = createSignal(price);
     const [productStock, setProductStock] = createSignal(stock);
     const [productDataChange, setProductDataChanged] = createSignal(false);
+    const [isInSale, setIsInSale] = createSignal(productSale);
+
+    const [nmLabel, setNmLabel] = createSignal(
+        productSale ? "Nome ou Código" : "Nome"
+    );
+
+    const [cdLabel, setCdLabel] = createSignal(
+        productSale ? "Código SKU" : "Código"
+    );
 
     onMount(async () => {
         if (id != null) {
@@ -149,59 +161,121 @@ export default function ProductCard({
                 </div>
                 <div class="product-name-description-div">
                     <div class="product-name-div">
-                        <div class="product-name-div-inputs">
-                            <TextInput
-                                title="Nome"
-                                required={["create", "update"].includes(mode)}
-                                placeholder="Nome do Produto."
-                                placeholderOnError="Nome é inválido."
-                                onChange={(e) => setProductName(e)}
-                                onValidate={(e) => {}}
-                                value={productName}
-                                inputProps={{
-                                    type: "text",
-                                }}
-                            />
-                            <TextInput
-                                title="Código"
-                                required={true}
-                                placeholder="Código do Produto."
-                                placeholderOnError="Nome é inválido."
-                                onChange={(e) => setProductCode(e)}
-                                onValidate={(e) => {}}
-                                value={productCode}
-                                inputProps={{
-                                    type: "text",
-                                }}
-                            />
-                        </div>
-                        <div class="product-name-div-inputs">
-                            <TextInput
-                                title="Preço"
-                                required={false}
-                                placeholder="0"
-                                placeholderOnError="Preço é inválido."
-                                onChange={(e) => setProductPrice(e)}
-                                onValidate={(e) => {}}
-                                value={productPrice}
-                                inputProps={{
-                                    type: "number",
-                                    step: "0.1",
-                                }}
-                            />
-                            <TextInput
-                                title="Qtd."
-                                required={false}
-                                placeholder="0"
-                                placeholderOnError="Qtd. é inválida."
-                                onChange={(e) => setProductStock(e)}
-                                onValidate={(e) => {}}
-                                value={productStock}
-                                inputProps={{
-                                    type: "number",
-                                    step: "1",
-                                }}
-                            />
+                        <div style={{ display: "flex", "flex-direction": "column" }}>
+                            <div
+                                style={{ display: "flex", "flex-direction": "row" }}
+                            >
+                                <label
+                                    style={{
+                                        "padding-left": "0.5rem",
+                                        "padding-top": "0.25rem",
+                                        flex: 4,
+                                        "align-self": "center",
+                                    }}
+                                >
+                                    {isInSale() ? "Produto à Venda" : "Produto"}
+                                </label>
+                                <button
+                                    disabled={!enableChangeProductType}
+                                    onClick={() => {
+                                        setNmLabel(
+                                            isInSale() == false
+                                                ? "Nome ou Código"
+                                                : "Nome"
+                                        );
+                                        setCdLabel(
+                                            isInSale() == false
+                                                ? "Código SKU"
+                                                : "Código"
+                                        );
+                                        setIsInSale((prev) => !prev);
+                                    }}
+                                    style={{ flex: 1 }}
+                                >
+                                    <img
+                                        draggable={false}
+                                        src={ChangeProductState}
+                                        style={{
+                                            opacity: !enableChangeProductType
+                                                ? "0.5"
+                                                : "1",
+                                            cursor: !enableChangeProductType
+                                                ? "default"
+                                                : "pointer",
+                                            width: "24px",
+                                        }}
+                                    />
+                                </button>
+                            </div>
+                            <div
+                                style={{ display: "flex", "flex-direction": "row" }}
+                            >
+                                <div class="product-name-div-inputs">
+                                    <TextInput
+                                        title={() => nmLabel()}
+                                        required={["create", "update"].includes(
+                                            mode
+                                        )}
+                                        placeholder="Nome do Produto."
+                                        placeholderOnError="Nome é inválido."
+                                        onChange={
+                                            (e) => setProductName(e)
+                                            //change function for in sale
+                                        }
+                                        onValidate={(e) => {}}
+                                        value={productName}
+                                        inputProps={{
+                                            type: "text",
+                                        }}
+                                    />
+                                    <TextInput
+                                        title={() => cdLabel()}
+                                        required={true}
+                                        placeholder="Código do Produto."
+                                        placeholderOnError="Nome é inválido."
+                                        onChange={(e) => setProductCode(e)}
+                                        onValidate={(e) => {}}
+                                        value={productCode}
+                                        inputProps={{
+                                            type: "text",
+                                        }}
+                                    />
+                                </div>
+                                <div class="product-name-div-inputs">
+                                    {isInSale() ? (
+                                        <>
+                                            <TextInput
+                                                title="Preço"
+                                                required={true}
+                                                placeholder="0"
+                                                placeholderOnError="Preço é inválido."
+                                                onChange={(e) => setProductPrice(e)}
+                                                onValidate={(e) => {}}
+                                                value={productPrice}
+                                                inputProps={{
+                                                    type: "number",
+                                                    step: "0.1",
+                                                }}
+                                            />
+                                        </>
+                                    ) : (
+                                        <></>
+                                    )}
+                                    <TextInput
+                                        title="Qtd."
+                                        required={false}
+                                        placeholder="0"
+                                        placeholderOnError="Qtd. é inválida."
+                                        onChange={(e) => setProductStock(e)}
+                                        onValidate={(e) => {}}
+                                        value={productStock}
+                                        inputProps={{
+                                            type: "number",
+                                            step: "1",
+                                        }}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="product-description">
